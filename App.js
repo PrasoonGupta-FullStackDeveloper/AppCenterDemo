@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import type {Node} from 'react';
+import type { Node } from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -16,6 +16,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Button
 } from 'react-native';
 
 import {
@@ -26,7 +27,7 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const Section = ({children, title}): Node => {
+const Section = ({ children, title }): Node => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -85,6 +86,12 @@ const App: () => Node = () => {
           </Section>
           <LearnMoreLinks />
         </View>
+        <Button
+          title="CRASH"
+          onPress={() => {
+            throw new Error("This is a test JavaScript Crash");
+          }}
+        />
       </ScrollView>
     </SafeAreaView>
   );
